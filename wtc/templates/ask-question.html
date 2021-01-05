@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        <h1>Ask a public question</h1>
+        <p>Type your question below. You can also use Markdown to help format your question.</p>
+        <form class="" action="ask-question" method="post">
+            {% csrf_token %}
+            <input type="text" name="title" value="" autocomplete="off" placeholder="Title"><br>
+            <textarea name="question" rows="8" cols="80" placeholder="Body"></textarea><p />
+            <input type="text" name="posted_by" value="" autocomplete="off" placeholder="Enter your name ..."><br>
+            <input type="submit" name="ask" value="Ask Question">
+        </form>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+{% endblock %}
